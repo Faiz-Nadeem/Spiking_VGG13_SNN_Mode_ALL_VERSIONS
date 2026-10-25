@@ -1,1 +1,18 @@
-mm
+Version 0.1(Basic Spiking Neural Network (SNN))
+Architecture:
+Conv1 (3→16) → LIF → MaxPool → Conv2 (16→32) → LIF → MaxPool → FC1 (8192→128) → LIF → FC2 (128→6) → LIF
+
+Ismein 2 convolutional layers hain. Har convolution ke baad LIF neuron aur pooling use ho rahi hai. Output layer 6 diseases represent karti hai.
+
+Version 0.2(Multimodal Spiking VGG-13)
+Version 0.2 mein humne architecture ko considerably expand kiya. Sabse pehla major change ye tha ke ab humne MILK10k dataset ki saari 11 classes include 
+kar li aur single modality ke bajaye dual-modality approach introduce ki, jisme dermoscopic aur clinical close-up images dono use ho rahi thi. 
+Iske liye humne dual-branch Spiking VGG-13 architecture implement kiya, jahan dono images separate branches se process hoti hain aur unke extracted 
+features baad mein concatenate kiye jate hain. Har branch mein 10 convolutional layers, spiking neurons aur average pooling use hui. Input image ka 
+size 128 × 128 tha, aur har branch se 32,768 features extract ho rahe the. Dono branches ko combine karne ke baad 65,536 features fully connected layer 
+mein ja rahe the. Is version mein humne latency encoding ki jagah Bernoulli rate encoding use ki, jisme pixel intensity spike generate hone ki probability 
+determine karti hai. Neuron ka beta 1.0 rakha gaya tha, jis se neuron IF-like behavior show karta tha, yani membrane potential mein leakage nahi hoti thi. 
+Training ke liye Adam optimizer, class-balanced focal loss aur weighted sampling introduce ki gayi taake class imbalance handle ho sake. Lekin training ke 
+results satisfactory nahi the. Validation accuracy approximately 5.85% thi aur model almost saari images ko AKIEC class mein classify kar raha tha. Iska major 
+diagnostic issue ye tha ke final output layer meaningful spikes generate nahi kar rahi thi. Isliye architecture zyada advanced hone ke bawajood model effectively 
+learn nahi kar raha tha.
