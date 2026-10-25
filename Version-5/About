@@ -1,3 +1,7 @@
+[Link](https://drive.google.com/drive/folders/1s-5lixOkNbrmKGUmt2o8vsMqGRPYwlBf?usp=sharing)
+
+
+
 Training 1 – Stratified Sampling (checkpoints_v5)
 Version 4 ki first training mein humne MILK10k dataset ki 11 classes aur dono modalities, dermoscopic aur clinical close-up images, use ki thi. 
 Dataset mein total 5,240 lesions the, jinhein stratified splitting ke through 70% training (3,668), 15% validation (786) aur 15% testing (786) mein 
