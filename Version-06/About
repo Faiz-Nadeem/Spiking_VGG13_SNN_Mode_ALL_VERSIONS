@@ -1,0 +1,12 @@
+changed
+Convolution blocks:	3 per branch
+Channels	32 → 64 → 128
+Batch size	8
+Time steps	8
+Encoding:	Poisson rate encoding
+Neurons:	IF (beta=0.5)
+Surrogate gradient	Fast Sigmoid, slope=5
+Normalization	BatchNorm
+Dataset splitting:	Stratified, 70/15/15
+Training sampler:	WeightedRandomSampler
+Classes:	11
